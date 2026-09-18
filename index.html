@@ -2,9 +2,32 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-574RCCSZ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6068XB4NXW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6068XB4NXW');
+</script>
+<!-- End Google tag -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ИИ и агенты — Darlean</title>
 <meta name="description" content="Дарвис — ИИ-ассистент внутри рабочей системы: ставит задачи, собирает отчёты и проводит заявки по маршрутам согласования.">
+
+<meta property="og:title" content="ИИ и агенты — Darlean">
+<meta property="og:description" content="Дарвис — ИИ-ассистент внутри рабочей системы: ставит задачи, собирает отчёты и проводит заявки по маршрутам согласования.">
+<meta property="og:url" content="https://agents.darlean.kz/">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" href="_ds/darlean-dark-website-ds-6bb28544-e29f-4540-a0cd-a9b9e285c31d/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet">
@@ -47,6 +70,9 @@ a:hover{color:#8ED4F6}
 .btn-nav{font-size:14px;background:transparent;color:#F5F5F7;border:1px solid rgba(255,255,255,0.18);padding:9px 20px;transition:background 150ms cubic-bezier(0.25,0.1,0.25,1)}
 .btn-nav:hover{background:#1D1D1F}
 .btn-nav:active{opacity:0.8}
+a.btn{display:inline-block;box-sizing:border-box;text-align:center;text-decoration:none}
+a.btn-primary,a.btn-primary:hover{color:#FFFFFF}
+a.btn-nav,a.btn-nav:hover{color:#F5F5F7}
 
 /* ---- nav ----------------------------------------------------------- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.72);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,0.06)}
@@ -114,11 +140,16 @@ a:hover{color:#8ED4F6}
 
 <body>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-574RCCSZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <nav class="nav">
   <div class="nav__inner">
     <a href="index.html" style="display:block" aria-label="Darlean — на главную"><img src="assets/logo-full-dark.svg" width="102" height="20" alt="Darlean" style="display:block"></a>
     <div style="display:flex;gap:12px;align-items:center">
-      <button type="button" class="btn btn-nav">Начать бесплатно</button>
+      <a class="btn btn-nav" href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
     </div>
   </div>
 </nav>
@@ -131,7 +162,7 @@ a:hover{color:#8ED4F6}
     <h1 class="hero__title" data-reveal="1">ИИ, который выполняет работу<span class="grad">а не только отвечает</span></h1>
     <p class="hero__lead rounded" data-reveal="2">Дарвис живёт внутри вашей рабочей системы: видит задачи, проекты, документы и оргструктуру. Поэтому он не советует, а ставит задачи, собирает отчёты и проводит заявки по маршрутам.</p>
     <div class="hero__actions" data-reveal="3">
-      <button type="button" class="btn btn-primary" data-grad>Начать бесплатно</button>
+      <a class="btn btn-primary" data-grad href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
       <button type="button" class="btn btn-secondary">Показать на демо</button>
     </div>
   </div>
@@ -203,7 +234,7 @@ a:hover{color:#8ED4F6}
       <h2>Начните с одного агента в одном отделе</h2>
       <p class="rounded">Задачи и отчёты — сразу, расходы и секретарь — по мере доверия. Freemium бесплатен навсегда.</p>
     </div>
-    <button type="button" class="btn btn-primary btn-primary--lg" data-grad>Начать бесплатно</button>
+    <a class="btn btn-primary btn-primary--lg" data-grad href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
   </div>
 </section>
 
@@ -279,6 +310,51 @@ a:hover{color:#8ED4F6}
   }
 
   select(active);
+})();
+</script>
+
+<!-- Передача рекламных меток в app.darlean.kz -->
+<script>
+(function () {
+  var CLICK_IDS = ['gclid', 'fbclid', 'yclid'];
+  var STORE     = 'darlean_ads_params';
+  var TARGET    = 'app.darlean.kz';
+
+  // 1. То, что уже сохранили на прошлых страницах этой сессии
+  var saved = {};
+  try { saved = JSON.parse(sessionStorage.getItem(STORE)) || {}; } catch (e) { saved = {}; }
+
+  // 2. Забираем метки из адресной строки: все utm_* плюс идентификаторы кликов
+  var fresh = false;
+  try {
+    new URLSearchParams(window.location.search).forEach(function (value, key) {
+      var k = key.toLowerCase();
+      if (k.indexOf('utm_') === 0 || CLICK_IDS.indexOf(k) !== -1) {
+        saved[k] = value;
+        fresh = true;
+      }
+    });
+  } catch (e) {}
+
+  if (fresh) {
+    try { sessionStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  var keys = Object.keys(saved);
+  if (!keys.length) return;
+
+  // 3. Дописываем метки ко всем ссылкам на app.darlean.kz.
+  //    Параметр, который в ссылке уже есть (lang, tarif), не трогаем.
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+    var url;
+    try { url = new URL(a.href, window.location.href); } catch (e) { return; }
+    if (url.hostname !== TARGET) return;
+
+    keys.forEach(function (k) {
+      if (!url.searchParams.has(k)) url.searchParams.set(k, saved[k]);
+    });
+    a.href = url.toString();
+  });
 })();
 </script>
 
