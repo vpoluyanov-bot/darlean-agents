@@ -75,6 +75,7 @@ a:hover{color:#8ED4F6}
 img,video{max-width:100%}
 
 /* ---- motion ------------------------------------------------------- */
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes orbPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.75}50%{transform:translateX(-50%) scale(1.08);opacity:1}}
 @keyframes gradFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
@@ -346,6 +347,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="btn btn-primary" data-grad href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
     </div>
   </div>
+</section>
+
+<section data-screen-label="Клиенты" style="padding:0 0 56px;background:#000000">
+<div style="max-width:1280px;margin:0 auto;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+<div style="display:flex;gap:88px;width:max-content;align-items:center;animation:marquee 32s linear infinite">
+<span style="font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#6E6E73;white-space:nowrap">Beeline</span>
+<span style="font-size:22px;font-weight:500;letter-spacing:0.08em;color:#6E6E73;white-space:nowrap">TNS global</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#6E6E73;white-space:nowrap">Naiza</span>
+<span style="font-size:22px;font-weight:500;letter-spacing:0.02em;color:#6E6E73;white-space:nowrap">31 Канал</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:0.04em;color:#6E6E73;white-space:nowrap">Engineering services</span>
+<span style="font-size:22px;font-weight:500;letter-spacing:0.03em;color:#6E6E73;white-space:nowrap">Fintechlab</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:0.1em;color:#6E6E73;white-space:nowrap">FBU</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#6E6E73;white-space:nowrap">Beeline</span>
+<span style="font-size:22px;font-weight:500;letter-spacing:0.08em;color:#6E6E73;white-space:nowrap">TNS global</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#6E6E73;white-space:nowrap">Naiza</span>
+<span style="font-size:22px;font-weight:500;letter-spacing:0.02em;color:#6E6E73;white-space:nowrap">31 Канал</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:0.04em;color:#6E6E73;white-space:nowrap">Engineering services</span>
+<span style="font-size:22px;font-weight:500;letter-spacing:0.03em;color:#6E6E73;white-space:nowrap">Fintechlab</span>
+<span style="font-size:22px;font-weight:600;letter-spacing:0.1em;color:#6E6E73;white-space:nowrap;margin-right:88px">FBU</span>
+</div>
+</div>
 </section>
 
 <section class="ai" aria-label="ИИ-ассистент и агенты">
@@ -929,21 +951,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     try { sessionStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {}
   }
 
-  var keys = Object.keys(saved);
-  if (!keys.length) return;
+  // 3. Метки подставляем не при загрузке, а в момент клика — прямо перед переходом.
+  //    Так они доедут и до ссылок, появившихся на странице позже, и переживут
+  //    любую перерисовку разметки. Параметр, который в ссылке уже есть
+  //    (lang, tarif), не трогаем.
+  function decorate(a) {
+    var keys = Object.keys(saved);
+    if (!keys.length) return;
 
-  // 3. Дописываем метки ко всем ссылкам на app.darlean.kz.
-  //    Параметр, который в ссылке уже есть (lang, tarif), не трогаем.
-  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
     var url;
-    try { url = new URL(a.href, window.location.href); } catch (e) { return; }
+    try { url = new URL(a.getAttribute('href'), window.location.href); } catch (e) { return; }
     if (url.hostname !== TARGET) return;
 
     keys.forEach(function (k) {
       if (!url.searchParams.has(k)) url.searchParams.set(k, saved[k]);
     });
     a.href = url.toString();
-  });
+  }
+
+  // click — обычное нажатие, Enter с клавиатуры и палец на телефоне.
+  // auxclick — средняя кнопка мыши, то есть «открыть в новой вкладке».
+  function onClick(e) {
+    var t = e.target;
+    var a = t && t.closest ? t.closest('a[href]') : null;
+    if (a) decorate(a);
+  }
+
+  document.addEventListener('click', onClick, true);
+  document.addEventListener('auxclick', onClick, true);
 })();
 </script>
 
