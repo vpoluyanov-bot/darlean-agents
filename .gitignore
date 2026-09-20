@@ -14,3 +14,9 @@ node_modules/
 
 # ВАЖНО: папки _ds и assets НЕ игнорируются — без них сайт останется без стилей.
 .env*
+
+# Локальные резервные копии и рабочие файлы — в прод не попадают
+index-backup.html
+*-backup.html
+keep.md
+screenshots/
