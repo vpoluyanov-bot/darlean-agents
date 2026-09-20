@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-574RCCSZ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6068XB4NXW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6068XB4NXW');
+</script>
+<!-- End Google tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ и агенты — Darlean</title>
+<meta name="description" content="Дарвис — ИИ-ассистент внутри рабочей системы: ставит задачи, собирает отчёты и проводит заявки по маршрутам согласования.">
+
+<meta property="og:title" content="ИИ и агенты — Darlean">
+<meta property="og:description" content="Дарвис — ИИ-ассистент внутри рабочей системы: ставит задачи, собирает отчёты и проводит заявки по маршрутам согласования.">
+<meta property="og:url" content="https://agents.darlean.kz/">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="_ds/darlean-dark-website-ds-6bb28544-e29f-4540-a0cd-a9b9e285c31d/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ---- page base ---------------------------------------------------- */
+body{margin:0;overflow-x:hidden;background:#000000;font-family:-apple-system,'SF Pro Display','Inter','Helvetica Neue',Arial,sans-serif;font-feature-settings:'cv11';color:#F5F5F7;-webkit-font-smoothing:antialiased}
+a{color:#039BE6;text-decoration:none}
+a:hover{color:#8ED4F6}
+::selection{background:#0277B5;color:#fff}
+:focus-visible{outline:2px solid #039BE6;outline-offset:2px}
+
+/* ---- motion ------------------------------------------------------- */
+@keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes orbPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.75}50%{transform:translateX(-50%) scale(1.08);opacity:1}}
+@keyframes gradFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes glowPulse{0%,100%{box-shadow:0 6px 36px -8px rgba(3,155,230,0.55),0 0 0 1px rgba(142,212,246,0.18) inset}50%{box-shadow:0 12px 72px -6px rgba(3,155,230,0.95),0 0 28px -4px rgba(142,212,246,0.45),0 0 0 1px rgba(195,232,251,0.35) inset}}
+@keyframes shineSweep{0%,55%{transform:translateX(-160%) skewX(-18deg)}85%,100%{transform:translateX(240%) skewX(-18deg)}}
+
+/* ---- primary button (project override of the DS "no shadows" rule) -- */
+[data-grad]{position:relative;overflow:hidden;background-image:linear-gradient(110deg,#015C93,#0387C9 28%,#039BE6 42%,#8ED4F6 55%,#039BE6 68%,#0387C9 82%,#015C93) !important;background-size:280% 100% !important;animation:gradFlow 4s cubic-bezier(0.45,0,0.55,1) infinite,glowPulse 3s ease-in-out infinite;transition:transform 250ms cubic-bezier(0.25,0.1,0.25,1),filter 250ms cubic-bezier(0.25,0.1,0.25,1)}
+[data-grad]::after{content:'';position:absolute;top:0;bottom:0;left:0;width:38%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.32) 50%,rgba(255,255,255,0) 100%);animation:shineSweep 3.4s cubic-bezier(0.4,0,0.2,1) infinite;pointer-events:none}
+[data-grad]:hover{transform:translateY(-2px);filter:brightness(1.12) saturate(1.15)}
+[data-grad]:active{transform:scale(0.97)}
+
+@media (prefers-reduced-motion:reduce){
+  [data-grad]{animation:none !important}
+  [data-grad]::after{animation:none !important}
+  [data-reveal]{animation:none !important}
+  [data-orb]{animation:none !important}
+}
+
+/* ---- buttons ------------------------------------------------------- */
+.btn{font-family:inherit;font-weight:500;border-radius:999px;cursor:pointer}
+.btn-primary{font-size:15px;background:linear-gradient(110deg,#015C93,#0387C9 28%,#039BE6 42%,#8ED4F6 55%,#039BE6 68%,#0387C9 82%,#015C93);background-size:280% 100%;color:#FFFFFF;border:none;padding:13px 28px}
+.btn-primary--lg{padding:15px 32px;flex:none}
+.btn-secondary{font-size:15px;background:transparent;color:#F5F5F7;border:1px solid rgba(255,255,255,0.18);padding:13px 28px;transition:background 150ms cubic-bezier(0.25,0.1,0.25,1)}
+.btn-secondary:hover{background:#1D1D1F}
+.btn-secondary:active{opacity:0.8}
+.btn-nav{font-size:14px;background:transparent;color:#F5F5F7;border:1px solid rgba(255,255,255,0.18);padding:9px 20px;transition:background 150ms cubic-bezier(0.25,0.1,0.25,1)}
+.btn-nav:hover{background:#1D1D1F}
+.btn-nav:active{opacity:0.8}
+a.btn{display:inline-block;box-sizing:border-box;text-align:center;text-decoration:none}
+a.btn-primary,a.btn-primary:hover{color:#FFFFFF}
+a.btn-nav,a.btn-nav:hover{color:#F5F5F7}
+
+/* ---- nav ----------------------------------------------------------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.72);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav__inner{max-width:1280px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 24px}
+
+/* ---- shared layout -------------------------------------------------- */
+.wrap{max-width:1280px;margin:0 auto}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:0.08em;color:#8ED4F6}
+.eyebrow--deep{color:#0277B5}
+.rounded{font-family:'SF Pro Rounded','Nunito',sans-serif}
+
+/* ---- hero ----------------------------------------------------------- */
+.hero{position:relative;box-sizing:border-box;padding:110px 24px 92px;background:#000000;overflow:hidden}
+.hero__orb{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:760px;height:760px;max-width:140vw;border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(3,155,230,0.38) 0%,rgba(2,119,181,0.16) 42%,rgba(0,0,0,0) 70%);filter:blur(60px);animation:orbPulse 7s ease-in-out infinite;pointer-events:none}
+.hero__inner{position:relative;max-width:900px;margin:0 auto;text-align:center}
+.hero__title{margin:16px 0 0;font-size:clamp(34px,4.2vw,52px);line-height:1.05;letter-spacing:-0.03em;font-weight:600;color:#FFFFFF;text-wrap:pretty}
+.hero__title .grad{display:block;background:linear-gradient(96deg,#FFFFFF 0%,#8ED4F6 45%,#039BE6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.hero__lead{margin:24px auto 0;font-size:17px;line-height:1.55;color:#86868B;max-width:34em;text-wrap:pretty}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+[data-reveal]{animation:heroIn 400ms cubic-bezier(0.16,1,0.3,1) both}
+[data-reveal="1"]{animation-delay:60ms}
+[data-reveal="2"]{animation-delay:120ms}
+[data-reveal="3"]{animation-delay:180ms}
+
+/* ---- agents --------------------------------------------------------- */
+.agents{box-sizing:border-box;padding:0 24px 96px;background:#000000}
+.agents__tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.tab{font-family:inherit;font-size:14px;font-weight:500;border-radius:999px;padding:11px 22px;cursor:pointer;background:transparent;color:#86868B;border:1px solid rgba(255,255,255,0.18);transition:background 150ms cubic-bezier(0.25,0.1,0.25,1),color 150ms cubic-bezier(0.25,0.1,0.25,1)}
+.tab:hover{color:#F5F5F7}
+.tab[aria-selected="true"]{background:#039BE6;color:#FFFFFF;border-color:#039BE6}
+.agents__panel{background:#1D1D1F;border:1px solid rgba(255,255,255,0.10);border-radius:28px;padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start}
+.agents__headline{margin:14px 0 0;font-size:clamp(24px,2.4vw,34px);line-height:1.14;letter-spacing:-0.025em;font-weight:600;color:#FFFFFF;text-wrap:pretty}
+.agents__body{margin:16px 0 0;font-size:17px;line-height:1.6;color:#86868B;max-width:34em;text-wrap:pretty}
+.agents__bullets{display:flex;flex-direction:column;gap:12px;min-width:0;margin:0;padding:0;list-style:none}
+.agents__bullets li{background:#000000;border:1px solid rgba(255,255,255,0.10);border-radius:18px;padding:18px 20px;font-size:15px;line-height:1.5;color:#F5F5F7}
+
+/* ---- why (light section) -------------------------------------------- */
+.why{box-sizing:border-box;padding:96px 24px;background:#FFFFFF;color:#000000}
+.why__title{margin:16px 0 0;font-size:clamp(28px,2.8vw,40px);line-height:1.12;letter-spacing:-0.025em;font-weight:600;color:#000000;max-width:24em;text-wrap:pretty}
+.why__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:48px}
+.why h3{margin:0;font-size:20px;line-height:1.2;letter-spacing:-0.02em;font-weight:600;color:#000000}
+.why p{margin:10px 0 0;font-size:16px;line-height:1.55;color:#515154;text-wrap:pretty}
+
+/* ---- control -------------------------------------------------------- */
+.control{box-sizing:border-box;padding:96px 24px;background:#000000}
+.control__title{margin:16px 0 0;font-size:clamp(28px,2.8vw,40px);line-height:1.12;letter-spacing:-0.025em;font-weight:600;color:#FFFFFF;max-width:24em;text-wrap:pretty}
+.control__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px}
+.card{background:#1D1D1F;border:1px solid rgba(255,255,255,0.10);border-radius:28px;padding:32px}
+.card h3{margin:0;font-size:22px;line-height:1.2;letter-spacing:-0.02em;font-weight:600;color:#FFFFFF}
+.card p{margin:12px 0 0;font-size:16px;line-height:1.55;color:#86868B;text-wrap:pretty}
+
+/* ---- cta ------------------------------------------------------------ */
+.cta{box-sizing:border-box;padding:0 24px 104px;background:#000000}
+.cta__panel{max-width:1280px;margin:0 auto;background:#1D1D1F;border:1px solid rgba(255,255,255,0.10);border-radius:28px;padding:48px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+.cta__panel h2{margin:0;font-size:clamp(24px,2.2vw,32px);line-height:1.15;letter-spacing:-0.025em;font-weight:600;color:#FFFFFF;text-wrap:pretty}
+.cta__panel p{margin:14px 0 0;font-size:16px;line-height:1.55;color:#86868B;max-width:36em;text-wrap:pretty}
+.cta__copy{min-width:280px;flex:1}
+
+@media (max-width:640px){
+  .agents__panel{padding:28px}
+  .cta__panel{padding:32px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-574RCCSZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" style="display:block" aria-label="Darlean — на главную"><img src="assets/logo-full-dark.svg" width="102" height="20" alt="Darlean" style="display:block"></a>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a class="btn btn-nav" href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" aria-label="Hero">
+  <div class="hero__orb" data-orb aria-hidden="true"></div>
+  <div class="hero__inner">
+    <div class="eyebrow" data-reveal="0">ИИ-АССИСТЕНТ ДАРВИС</div>
+    <h1 class="hero__title" data-reveal="1">ИИ, который выполняет работу<span class="grad">а не только отвечает</span></h1>
+    <p class="hero__lead rounded" data-reveal="2">Дарвис живёт внутри вашей рабочей системы: видит задачи, проекты, документы и оргструктуру. Поэтому он не советует, а ставит задачи, собирает отчёты и проводит заявки по маршрутам.</p>
+    <div class="hero__actions" data-reveal="3">
+      <a class="btn btn-primary" data-grad href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
+      <button type="button" class="btn btn-secondary">Показать на демо</button>
+    </div>
+  </div>
+</section>
+
+<!-- Агенты -->
+<section class="agents" aria-label="Агенты">
+  <div class="wrap">
+    <div class="agents__tabs" role="tablist" aria-label="Агенты Дарвиса" id="agentTabs"></div>
+    <div class="agents__panel" role="tabpanel" id="agentPanel" aria-live="polite">
+      <div>
+        <div class="eyebrow">АГЕНТ · <span id="agentLabel"></span></div>
+        <h2 class="agents__headline" id="agentHeadline"></h2>
+        <p class="agents__body rounded" id="agentBody"></p>
+      </div>
+      <ul class="agents__bullets" id="agentBullets"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Почему работает -->
+<section class="why" aria-label="Почему работает">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--deep">ПОЧЕМУ ЭТО РАБОТАЕТ</div>
+    <h2 class="why__title">Ассистент полезен настолько, насколько он видит работу</h2>
+    <div class="why__grid">
+      <div>
+        <h3>Контекст</h3>
+        <p class="rounded">Задачи, проекты, документы, календари и оргструктура — один источник правды. Дарвису не нужно спрашивать, кто за что отвечает.</p>
+      </div>
+      <div>
+        <h3>Права</h3>
+        <p class="rounded">Агент действует в рамках роли сотрудника: те же доступы, те же маршруты согласования, те же ограничения по конфиденциальным данным.</p>
+      </div>
+      <div>
+        <h3>Завершённость</h3>
+        <p class="rounded">Результат — не текст в чате, а закрытая задача, собранный отчёт или документ, подписанный ЭЦП НУЦ РК.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Контроль -->
+<section class="control" aria-label="Контроль и безопасность">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--deep">КОНТРОЛЬ И БЕЗОПАСНОСТЬ</div>
+    <h2 class="control__title">ИИ работает с вашими данными, но не владеет ими</h2>
+    <div class="control__grid">
+      <div class="card">
+        <h3>Zero Data Retention</h3>
+        <p>Данные компании не сохраняются провайдерами моделей и не используются для обучения.</p>
+      </div>
+      <div class="card">
+        <h3>Аудит каждого действия</h3>
+        <p>Видно, что сделал агент и по чьему запросу: кто поставил задачу, что согласовал, какой документ изменил.</p>
+      </div>
+      <div class="card">
+        <h3>Человек подтверждает</h3>
+        <p>Критичные шаги — оплата, подпись, кадровые решения — требуют подтверждения ответственного сотрудника.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" aria-label="CTA">
+  <div class="cta__panel">
+    <div class="cta__copy">
+      <h2>Начните с одного агента в одном отделе</h2>
+      <p class="rounded">Задачи и отчёты — сразу, расходы и секретарь — по мере доверия. Freemium бесплатен навсегда.</p>
+    </div>
+    <a class="btn btn-primary btn-primary--lg" data-grad href="https://app.darlean.kz/signup?lang=ru&amp;tarif=TRY_FREE">Начать бесплатно</a>
+  </div>
+</section>
+
+<script>
+(function () {
+  var AGENTS = [
+    { name: 'Задачи', label: 'ЗАДАЧИ',
+      headline: 'Ставит и закрывает задачи по контексту проекта',
+      body: 'Дарвис разбирает запрос на задачи, назначает исполнителей по оргструктуре и загрузке, ставит сроки и следит за просрочками.',
+      bullets: ['Задача из письма, чата или встречи', 'Исполнитель — по роли и загрузке', 'Эскалация, если срок под угрозой'] },
+    { name: 'Отчёты', label: 'ОТЧЁТЫ',
+      headline: 'Собирает сводки без ручных выгрузок',
+      body: 'Статусы по проектам, загрузка команды, просрочки и результаты недели собираются из системы, а не из переписки.',
+      bullets: ['Сводка по проекту к нужному часу', 'Данные из задач, а не из слов', 'Выгрузка в Excel и по API'] },
+    { name: 'Расходы', label: 'РАСХОДЫ',
+      headline: 'Проводит заявки и счета по маршрутам согласования',
+      body: 'Заявка создаётся из счёта, идёт по маршруту в зависимости от суммы и статьи, напоминает согласующим и фиксирует итог.',
+      bullets: ['Заявка из счёта или договора', 'Маршрут по сумме и статье расходов', '100% платежей — по маршруту'] },
+    { name: 'Секретарь', label: 'СЕКРЕТАРЬ',
+      headline: 'Ведёт календарь, встречи и переписку',
+      body: 'Находит окно для встречи, собирает участников, ведёт итоги и превращает договорённости в задачи с ответственными.',
+      bullets: ['Встреча без переписки о времени', 'Итоги встречи — в задачи', 'Напоминания участникам'] }
+  ];
+
+  var tabsEl    = document.getElementById('agentTabs');
+  var panelEl   = document.getElementById('agentPanel');
+  var labelEl   = document.getElementById('agentLabel');
+  var headEl    = document.getElementById('agentHeadline');
+  var bodyEl    = document.getElementById('agentBody');
+  var bulletsEl = document.getElementById('agentBullets');
+  var active    = 0;
+
+  var tabs = AGENTS.map(function (agent, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tab';
+    b.textContent = agent.name;
+    b.setAttribute('role', 'tab');
+    b.id = 'agent-tab-' + i;
+    b.addEventListener('click', function () { select(i); });
+    b.addEventListener('keydown', function (e) {
+      var next = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+      if (next === null) return;
+      e.preventDefault();
+      next = (next + AGENTS.length) % AGENTS.length;
+      select(next);
+      tabs[next].focus();
+    });
+    tabsEl.appendChild(b);
+    return b;
+  });
+
+  function select(i) {
+    active = i;
+    var agent = AGENTS[i];
+
+    tabs.forEach(function (tab, n) {
+      tab.setAttribute('aria-selected', String(n === i));
+      tab.tabIndex = n === i ? 0 : -1;
+    });
+
+    panelEl.setAttribute('aria-labelledby', 'agent-tab-' + i);
+    labelEl.textContent = agent.label;
+    headEl.textContent  = agent.headline;
+    bodyEl.textContent  = agent.body;
+
+    bulletsEl.textContent = '';
+    agent.bullets.forEach(function (text) {
+      var li = document.createElement('li');
+      li.textContent = text;
+      bulletsEl.appendChild(li);
+    });
+  }
+
+  select(active);
+})();
+</script>
+
+<!-- Передача рекламных меток в app.darlean.kz -->
+<script>
+(function () {
+  var CLICK_IDS = ['gclid', 'fbclid', 'yclid'];
+  var STORE     = 'darlean_ads_params';
+  var TARGET    = 'app.darlean.kz';
+
+  // 1. То, что уже сохранили на прошлых страницах этой сессии
+  var saved = {};
+  try { saved = JSON.parse(sessionStorage.getItem(STORE)) || {}; } catch (e) { saved = {}; }
+
+  // 2. Забираем метки из адресной строки: все utm_* плюс идентификаторы кликов
+  var fresh = false;
+  try {
+    new URLSearchParams(window.location.search).forEach(function (value, key) {
+      var k = key.toLowerCase();
+      if (k.indexOf('utm_') === 0 || CLICK_IDS.indexOf(k) !== -1) {
+        saved[k] = value;
+        fresh = true;
+      }
+    });
+  } catch (e) {}
+
+  if (fresh) {
+    try { sessionStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  var keys = Object.keys(saved);
+  if (!keys.length) return;
+
+  // 3. Дописываем метки ко всем ссылкам на app.darlean.kz.
+  //    Параметр, который в ссылке уже есть (lang, tarif), не трогаем.
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+    var url;
+    try { url = new URL(a.href, window.location.href); } catch (e) { return; }
+    if (url.hostname !== TARGET) return;
+
+    keys.forEach(function (k) {
+      if (!url.searchParams.has(k)) url.searchParams.set(k, saved[k]);
+    });
+    a.href = url.toString();
+  });
+})();
+</script>
+
+</body>
+</html>
