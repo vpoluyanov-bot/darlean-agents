@@ -53,6 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://cdn.amplitude.com">
 
 <link rel="preload" as="style" href="_ds/darlean-dark-website-ds-6bb28544-e29f-4540-a0cd-a9b9e285c31d/tokens/fonts.css">
 <link rel="preload" as="style" href="_ds/darlean-dark-website-ds-6bb28544-e29f-4540-a0cd-a9b9e285c31d/tokens/colors.css">
@@ -924,6 +925,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
+<!-- Amplitude: только стандартный сбор (просмотры, сессии, метки), без своих событий -->
+<script>
+(function () {
+  var API_KEY = 'ddbfab1dc3700e3a1a18ef939e6d8675';
+  var SRC     = 'https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz';
+
+  // Общая cookie на домене верхнего уровня (.darlean.kz), чтобы app.darlean.kz
+  // видел тот же номер устройства. Для localhost и IP — не задаём.
+  function getTopDomain() {
+    var host = window.location.hostname;
+    if (!host || host === 'localhost' || /^[\d.]+$/.test(host)) return undefined;
+    var parts = host.split('.');
+    if (parts.length < 2) return undefined;
+    return '.' + parts.slice(-2).join('.');
+  }
+
+  function load() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = SRC;
+    s.onload = function () {
+      if (!window.amplitude) return;
+      try {
+        var options = { autocapture: { elementInteractions: false } };
+        var topDomain = getTopDomain();
+        if (topDomain) options.cookieOptions = { domain: topDomain };
+        window.amplitude.init(API_KEY, undefined, options);
+      } catch (e) {
+        // аналитика не должна ломать страницу
+      }
+    };
+    document.head.appendChild(s);
+  }
+
+  // Грузим, когда браузер освободится, чтобы не тормозить первую отрисовку.
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(load, { timeout: 4000 });
+  } else {
+    setTimeout(load, 2000);
+  }
+})();
+</script>
+
 <!-- Передача рекламных меток в app.darlean.kz -->
 <script>
 (function () {
@@ -955,9 +999,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   //    Так они доедут и до ссылок, появившихся на странице позже, и переживут
   //    любую перерисовку разметки. Параметр, который в ссылке уже есть
   //    (lang, tarif), не трогаем.
+  //    Плюс номер устройства Amplitude (ampDeviceId) — чтобы продукт склеил
+  //    посетителя лендинга со своим пользователем.
+  function getAmpDeviceId() {
+    try { return window.amplitude && window.amplitude.getDeviceId && window.amplitude.getDeviceId(); } catch (e) { return undefined; }
+  }
+
   function decorate(a) {
     var keys = Object.keys(saved);
-    if (!keys.length) return;
+    var deviceId = getAmpDeviceId();
+    if (!keys.length && !deviceId) return;
 
     var url;
     try { url = new URL(a.getAttribute('href'), window.location.href); } catch (e) { return; }
@@ -966,6 +1017,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     keys.forEach(function (k) {
       if (!url.searchParams.has(k)) url.searchParams.set(k, saved[k]);
     });
+    if (deviceId && !url.searchParams.has('ampDeviceId')) url.searchParams.set('ampDeviceId', deviceId);
     a.href = url.toString();
   }
 
